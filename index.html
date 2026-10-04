@@ -29,7 +29,15 @@
     text-transform: uppercase; margin-bottom: .75rem; font-weight: 800;
   }
   h1 .bolt { color: var(--orange); }
-  .tagline { color: #bdbdbd; font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem; }
+  .tagline { color: #bdbdbd; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.75rem; }
+  .countdown { display: flex; gap: .7rem; justify-content: center; margin-bottom: .6rem; }
+  .countdown div {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,75,11,.35);
+    border-radius: 12px; min-width: 74px; padding: .8rem .4rem;
+  }
+  .countdown span { display: block; font-size: 1.9rem; font-weight: 800; color: var(--orange); font-variant-numeric: tabular-nums; }
+  .countdown label { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: #999; }
+  .launch-note { color: #888; font-size: .85rem; margin-bottom: 2rem; }
   .services {
     display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap;
     margin-bottom: 2.25rem;
@@ -56,6 +64,13 @@
     <img class="logo" src="trace-electric-logo-stripe.png" alt="Trace Electric logo">
     <h1>Coming <span class="bolt">Soon</span></h1>
     <p class="tagline">Our new website is on the way. We're still wiring things up behind the scenes &mdash; check back shortly.</p>
+    <div class="countdown" id="countdown">
+      <div><span id="cd-d">--</span><label>Days</label></div>
+      <div><span id="cd-h">--</span><label>Hours</label></div>
+      <div><span id="cd-m">--</span><label>Mins</label></div>
+      <div><span id="cd-s">--</span><label>Secs</label></div>
+    </div>
+    <p class="launch-note" id="launch-note">Going live Monday, October 12 at 8:00 AM Eastern</p>
     <div class="services">
       <span>Residential</span><span>Commercial</span><span>Service &amp; Repair</span>
     </div>
@@ -65,5 +80,25 @@
     </div>
     <footer>&copy; 2026 Trace Electric &middot; Greater Cincinnati, Ohio<br>Built by <a href="https://fullsitesolutions.com">FullSite Solutions</a></footer>
   </main>
+<script>
+  const target = new Date('2026-10-12T08:00:00-04:00').getTime();
+  const pad = n => String(n).padStart(2, '0');
+  function tick() {
+    const diff = target - Date.now();
+    if (diff <= 0) {
+      document.getElementById('countdown').style.display = 'none';
+      document.getElementById('launch-note').textContent = "We're live — welcome to Trace Electric.";
+      return;
+    }
+    const d = Math.floor(diff / 864e5), h = Math.floor(diff % 864e5 / 36e5),
+          m = Math.floor(diff % 36e5 / 6e4), s = Math.floor(diff % 6e4 / 1e3);
+    document.getElementById('cd-d').textContent = d;
+    document.getElementById('cd-h').textContent = pad(h);
+    document.getElementById('cd-m').textContent = pad(m);
+    document.getElementById('cd-s').textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
 </body>
 </html>
