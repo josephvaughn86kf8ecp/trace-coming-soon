@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trace Electric — Coming Soon</title>
+<meta name="description" content="Trace Electric's new website is coming soon. Residential and commercial electrical services in the Greater Cincinnati area.">
+<link rel="icon" type="image/png" href="trace-electric-icon-512.png">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --orange: #ff4b0b; --ink: #111111; }
+  html, body { height: 100%; }
+  body {
+    background: var(--ink);
+    color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; text-align: center; padding: 2rem 1.25rem;
+    background-image: radial-gradient(ellipse 80% 55% at 50% 30%, rgba(255,75,11,.14), transparent 70%);
+  }
+  .wrap { max-width: 560px; width: 100%; }
+  .logo {
+    width: min(320px, 72vw); height: auto; display: block; margin: 0 auto 2rem;
+    background: #fff; border-radius: 18px; padding: 1.4rem 1.6rem;
+    box-shadow: 0 0 60px rgba(255,75,11,.25);
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3rem); letter-spacing: .35em; text-indent: .35em;
+    text-transform: uppercase; margin-bottom: .75rem; font-weight: 800;
+  }
+  h1 .bolt { color: var(--orange); }
+  .tagline { color: #bdbdbd; font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem; }
+  .services {
+    display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 2.25rem;
+  }
+  .services span {
+    border: 1px solid rgba(255,75,11,.55); color: #ffd9c7;
+    padding: .45rem 1rem; border-radius: 999px; font-size: .85rem; letter-spacing: .06em;
+  }
+  .cta { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .cta a {
+    text-decoration: none; font-weight: 700; font-size: 1rem;
+    padding: .9rem 1.8rem; border-radius: 10px; transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .cta a:hover { transform: translateY(-2px); }
+  .cta .call { background: var(--orange); color: #111; box-shadow: 0 6px 24px rgba(255,75,11,.4); }
+  .cta .mail { background: transparent; color: #f5f5f5; border: 1px solid #555; }
+  footer { color: #777; font-size: .8rem; letter-spacing: .08em; }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="logo" src="trace-electric-logo-stripe.png" alt="Trace Electric logo">
+    <h1>Coming <span class="bolt">Soon</span></h1>
+    <p class="tagline">Our new website is on the way. We're still wiring things up behind the scenes &mdash; check back shortly.</p>
+    <div class="services">
+      <span>Residential</span><span>Commercial</span><span>Service &amp; Repair</span>
+    </div>
+    <div class="cta">
+      <a class="call" href="tel:+15136808620">(513) 680-8620</a>
+      <a class="mail" href="mailto:daniel@bridgestreetremodeling.com">Email Us</a>
+    </div>
+    <footer>&copy; 2026 Trace Electric &middot; Greater Cincinnati, Ohio</footer>
+  </main>
+</body>
+</html>
