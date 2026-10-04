@@ -71,12 +71,19 @@
   </main>
 <script>
   const target = new Date('2026-10-12T08:00:00-04:00').getTime();
+  const LIVE_URL = 'https://trace-electric-production.up.railway.app';
   const pad = n => String(n).padStart(2, '0');
+  let launched = false;
   function tick() {
     const diff = target - Date.now();
     if (diff <= 0) {
-      document.getElementById('countdown').style.display = 'none';
-      document.getElementById('launch-note').textContent = "We're live — welcome to Trace Electric.";
+      if (!launched) {
+        launched = true;
+        clearInterval(timer);
+        document.getElementById('countdown').style.display = 'none';
+        document.getElementById('launch-note').textContent = "We're live — taking you to the new site…";
+        setTimeout(() => { window.location.href = LIVE_URL; }, 2500);
+      }
       return;
     }
     const d = Math.floor(diff / 864e5), h = Math.floor(diff % 864e5 / 36e5),
@@ -87,7 +94,7 @@
     document.getElementById('cd-s').textContent = pad(s);
   }
   tick();
-  setInterval(tick, 1000);
+  const timer = setInterval(tick, 1000);
 </script>
 </body>
 </html>
